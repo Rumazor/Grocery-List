@@ -35,7 +35,7 @@ function addItem(e){
         
         createListItem(id,value)
         // display alert
-        displayAlert('Item Added to the List', 'success');
+        displayAlert('Item agregado a la lista', 'success');
         // show container
         container.classList.add('show-container');
         // add to local store
@@ -49,13 +49,13 @@ function addItem(e){
 
     else if(value && editFlag ){
         editElement.innerHTML = value;
-        displayAlert('Value changed', 'success');
+        displayAlert('Valor cambiado', 'success');
         // edit local storage
         editLocalStorage(editID, value);
         setBackToDefault();
     }
     else {
-        displayAlert('Pleasea enter value', 'danger');
+        displayAlert('Porfavor ingresa un valor', 'danger');
     }
 
 }
@@ -77,7 +77,7 @@ function setBackToDefault(){
     grocery.value = '';
     editFlag = false;
     editID = '';
-    submitBtn.textContent = 'submit';
+    submitBtn.textContent = 'Enviar';
 }
 
 // clear items
@@ -90,7 +90,7 @@ function clearItems(){
         })
     }
     container.classList.remove('show-container');
-    displayAlert('List is now Empty', 'success');
+    displayAlert('La lista ahora esta vacia', 'success');
     setBackToDefault()
     localStorage.removeItem('list');
 }
@@ -104,7 +104,7 @@ function deleteFunc(e){
     if(list.children.length === 0){
         container.classList.remove('show-container');
     }
-    displayAlert('Item removed', 'danger');
+    displayAlert('Item removido', 'danger');
     setBackToDefault()
 
     // remove from local storage
@@ -120,7 +120,7 @@ function editFunc(e){
     grocery.value = editElement.innerHTML;
     editFlag = true;
     editID = element.dataset.id;
-    submitBtn.textContent = 'Edit';
+    submitBtn.textContent = 'Editando';
     
 }
 
@@ -132,7 +132,6 @@ function  addToLocalStorage(id,value){
     const grocery = {id,value};
     let items = getLocalStorage();
     
-    console.log(items);
     items.push(grocery);
     localStorage.setItem('list',JSON.stringify(items))
 
