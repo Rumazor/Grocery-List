@@ -213,3 +213,7 @@ function createListItem(id,value){
         list.appendChild(element);
 
 }
+
+
+let test = 'test message'
+console.log(test);
